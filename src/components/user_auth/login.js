@@ -38,7 +38,7 @@ const Login = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:5000/api/login', {
+      const response = await fetch('https://server-avacus-vercel.onrender.com/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

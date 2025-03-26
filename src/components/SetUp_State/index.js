@@ -48,7 +48,7 @@ const AvecusApp = () => {
 
   
   // API configuration
-  const API_URL = 'http://localhost:5000/api';
+  const API_URL = 'https://server-avacus-vercel.onrender.com/api';
   
   // Check authentication on load
   useEffect(() => {

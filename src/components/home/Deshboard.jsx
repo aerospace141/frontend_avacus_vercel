@@ -32,7 +32,7 @@ const [loading, setLoading] = useState(true); // Add loading state
   });
   
   // API configuration
-  const API_URL = 'http://localhost:5000/api';
+  const API_URL = 'https://server-avacus-vercel.onrender.com/api';
   
   // Check authentication on load
 // In your initial useEffect
