@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Mobile Performance Dashboard CSS */
+.mpd-container {
+    font-family: 'Inter', sans-serif;
+    max-width: 480px;
+    margin: 0 auto;
+    position: relative;
+    padding-bottom: 72px; /* Space for the fixed footer */
+  }
+  
+  .mpd-header {
+    height: 60px;
+  }
+  
+  .mpd-logo-circle {
+    font-size: 12px;
+  }
+  
+  .mpd-tabs {
+    scrollbar-width: none;
+  }
+  
+  .mpd-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .mpd-tab-btn {
+    white-space: nowrap;
+    transition: all 0.3s ease;
+  }
+  
+  .mpd-stats-grid {
+    grid-template-rows: 1fr;
+  }
+  
+  .mpd-accuracy-circle circle {
+    transition: stroke-dashoffset 0.8s ease;
+  }
+  
+  .mpd-game-bar {
+    transition: width 0.8s ease;
+  }
+  
+  .mpd-progress-bar {
+    transition: width 0.8s ease;
+  }
+  
+  .mpd-history-item {
+    transition: transform 0.2s ease;
+  }
+  
+  .mpd-history-item:active {
+    transform: scale(0.98);
+  }
+  
+  .mpd-nav-btn {
+    transition: color 0.3s ease;
+  }
+  
+  .mpd-nav-btn:active {
+    opacity: 0.8;
+  }
+  
+  .mpd-chart svg {
+    overflow: visible;
+  }
+  
+  .mpd-chart path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: dash 2s ease-in-out forwards;
+  }
+  
+  @keyframes dash {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  
+  .mpd-bar {
+    animation: grow 1s ease-out forwards;
+    transform-origin: bottom;
+    transform: scaleY(0);
+  }
+  
+  @keyframes grow {
+    to {
+      transform: scaleY(1);
+    }
+  }
+  
+  /* Dark mode specific styles */
+  @media (prefers-color-scheme: dark) {
+    .mpd-container {
+      background-color: #0f172a;
+    }
+  }
+  
+  /* Light mode override if needed */
+  @media (prefers-color-scheme: light) {
+    .mpd-container {
+      background-color: #0f172a;
+      color: white;
+    }
+  }
