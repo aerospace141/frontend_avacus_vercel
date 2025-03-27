@@ -1,7 +1,6 @@
-// import Message from '../global/alert';
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-// import "../../style/user_auth/Signup.css";
+import "../../styles/user_auth/login.css"
+
 const Signup = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -9,54 +8,21 @@ const Signup = () => {
   const [mobileNumber, setMobileNumber] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [passwordVisible, setPasswordVisible] = useState(false);
-  const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
   const [message, setMessage] = useState({ type: '', text: '' });
-  const [passwordMatch, setPasswordMatch] = useState(null); // Indicates match status
-  const navigate = useNavigate(); // Initialize useNavigate hook
-
-  const togglePasswordVisibility = () => {
-    setPasswordVisible(!passwordVisible);
-  };
-
-  const toggleConfirmPasswordVisibility = () => {
-    setConfirmPasswordVisible(!confirmPasswordVisible);
-  };
-
-  const showMessage = (type, text) => {
-    setMessage({ type, text });
-  };
-
-  useEffect(() => {
-    // Set timeout to remove the message after 5 seconds
-    const timer = setTimeout(() => {
-      setMessage({ type: '', text: '' });
-    }, 3000);
-
-    // Clear the timeout when the component unmounts or when message changes
-    return () => clearTimeout(timer);
-  }, [message]);
+  const [passwordMatch, setPasswordMatch] = useState(null);
 
   useEffect(() => {
     // Check if passwords match
     setPasswordMatch(password && confirmPassword && password === confirmPassword);
   }, [password, confirmPassword]);
 
-
-  const generateUniqueId = (firstName, lastName) => {
-    const formattedName = (firstName + lastName).replace(/\s/g, '').toLowerCase();
-    const randomNumber = Math.floor(100 + Math.random() * 900);
-    return `${formattedName}${randomNumber}`;
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     if (!passwordMatch) {
-      showMessage('error', 'Passwords do not match.');
+      setMessage({ type: 'error', text: 'Passwords do not match.' });
       return;
     }
-
-    const userId = generateUniqueId(firstName, lastName);
 
     const userData = {
       firstName,
@@ -64,7 +30,6 @@ const Signup = () => {
       email,
       mobileNumber,
       password,
-      userId,
     };
 
     try {
@@ -77,100 +42,111 @@ const Signup = () => {
       });
 
       if (response.ok) {
-        showMessage('success', 'User registered successfully!');
-        navigate("/login");
+        setMessage({ type: 'success', text: 'User registered successfully!' });
+        window.location.href = "/login";
       } else {
-        const errorData = await response.json(); // Parse error details
-        const errorMessage = errorData.message || "Failed to register user."; // Use error message from the server or a fallback
-        showMessage("error", errorMessage);
+        const errorData = await response.json();
+        setMessage({ type: "error", text: errorData.message || "Failed to register user." });
       }
     } catch (error) {
-      showMessage('error', 'Error during registration.');
+      setMessage({ type: 'error', text: 'Error during registration.' });
     }
   };
+
   return (
-    <div className="custom-signup-form">
-      <h2>Signup</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="custom-form-group">
-          <label htmlFor="firstName">First Name</label>
-          <input
-            type="text"
-            id="firstName"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-            required
-          />
-        </div>
-        <div className="custom-form-group">
-          <label htmlFor="lastName">Last Name</label>
-          <input
-            type="text"
-            id="lastName"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-            required
-          />
-        </div>
-        <div className="custom-form-group">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div className="custom-form-group">
-          <label htmlFor="mobileNumber">Mobile Number</label>
-          <input
-            type="text"
-            id="mobileNumber"
-            value={mobileNumber}
-            onChange={(e) => setMobileNumber(e.target.value)}
-            required
-          />
-        </div>
-        <div className="custom-form-group">
-          <label htmlFor="password">Password</label>
-          <div className="custom-form-group12">
-          <input
-              type={passwordVisible ? "text" : "password"}
-              id="password"
+    <div className="auth-container">
+      <div className="auth-form">
+        {/* <h2>Create Account</h2> */}
+        <div className="logo" style={{fontSize: '18px', marginBottom: '30px'}}>
+        Create Account
+          </div>
+        
+        {message.text && (
+          <div className={message.type === 'error' ? 'error-message' : 'success-message'}>
+            {message.text}
+          </div>
+        )}
+        
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-input"
+              placeholder="First Name"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              required
+            />
+          </div>
+          
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-input"
+              placeholder="Last Name"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              required
+            />
+          </div>
+          
+          <div className="form-group">
+            <input
+              type="email"
+              className="form-input"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-input"
+              placeholder="Mobile Number"
+              value={mobileNumber}
+              onChange={(e) => setMobileNumber(e.target.value)}
+              required
+            />
+          </div>
+          
+          <div className="form-group">
+            <input
+              type="password"
+              className="form-input"
+              placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <button
-              type="button"
-              onClick={togglePasswordVisibility}
-              className="toggle-password"
-            >
-              {passwordVisible ? "👁️" : "👁️‍🗨️"}
-            </button>
-            </div>
           </div>
-        <div className="custom-form-group">
-          <label htmlFor="confirmPassword">Confirm Password</label>
-          <div className="password-check">
+          
+          <div className="form-group">
             <input
               type="password"
-              id="confirmPassword"
+              className="form-input"
+              placeholder="Confirm Password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
-            {passwordMatch !== null && (
-              <span className={`status-icon ${passwordMatch ? 'match' : 'mismatch'}`}>
-                {passwordMatch ? '✔' : '✖'}
-              </span>
-            )}
           </div>
+          
+          <button 
+            type="submit" 
+            className="auth-button"
+            disabled={!passwordMatch}
+          >
+            Sign Up
+          </button>
+        </form>
+        
+        <div className="auth-toggle">
+          <a href="/signin">Already have an account? Login</a>
         </div>
-        <button type="submit" disabled={!passwordMatch}>Sign Up</button>
-      </form>
-      {/* <Message type={message.type} text={message.text} /> */}
+      </div>
     </div>
   );
 };

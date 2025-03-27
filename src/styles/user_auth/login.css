@@ -1,0 +1,70 @@
+:root {
+    --deep-blue: #0A0A2B;
+    --bright-blue: #0A0A79;
+    --white: #FFFFFF;
+  }
+  
+  .Login_page {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--deep-blue);
+  }
+  
+  .auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom, var(--deep-blue), var(--bright-blue));
+  }
+  
+  .auth-form {
+    width: 350px;
+    background-color: transparent;
+    text-align: center;
+  }
+  
+  .logo {
+    color: var(--white);
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 30px;
+    color: var(--white);
+    font-size: 16px;
+  }
+  
+  .form-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .auth-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #0A0A79;
+    color: var(--white);
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .forgot-password {
+    color: var(--white);
+    text-decoration: none;
+    display: block;
+    margin-top: 15px;
+    opacity: 0.7;
+  }
