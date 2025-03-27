@@ -23,6 +23,7 @@ const Signup = () => {
       setMessage({ type: 'error', text: 'Passwords do not match.' });
       return;
     }
+    const userId = generateUniqueId(firstName, lastName);
 
     const userData = {
       firstName,
@@ -30,6 +31,7 @@ const Signup = () => {
       email,
       mobileNumber,
       password,
+      userId,
     };
 
     try {
