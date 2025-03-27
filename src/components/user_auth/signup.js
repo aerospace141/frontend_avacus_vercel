@@ -23,6 +23,13 @@ const Signup = () => {
       setMessage({ type: 'error', text: 'Passwords do not match.' });
       return;
     }
+
+    const generateUniqueId = (firstName, lastName) => {
+      const formattedName = (firstName + lastName).replace(/\s/g, '').toLowerCase();
+      const randomNumber = Math.floor(100 + Math.random() * 900);
+      return `${formattedName}${randomNumber}`;
+    };
+    
     const userId = generateUniqueId(firstName, lastName);
 
     const userData = {
