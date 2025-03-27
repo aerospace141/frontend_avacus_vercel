@@ -33,7 +33,7 @@ const Signup = () => {
     };
 
     try {
-      const response = await fetch('https://avacus.onrender.com/api/signup', {
+      const response = await fetch('https://server-avacus.vercel.app/api/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
