@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "../../styles/user_auth/login.css"
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -50,7 +52,7 @@ const Login = () => {
             <input
               type="text"
               className="form-input"
-              placeholder="Email"
+              placeholder="Mobile Number"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -78,6 +80,16 @@ const Login = () => {
         
         <a href="/forgot-password" className="forgot-password">
           Forgot the password? Click here
+        </a>
+
+        {/* <button 
+        onClick={()=>navigate('/signup')}
+            className="auth-button"
+          >
+            SIGN UP
+        </button> */}
+        <a href="/signup" className="forgot-password">
+        SIGN UP
         </a>
       </div>
     </div>
