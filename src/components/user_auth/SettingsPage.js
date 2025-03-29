@@ -51,7 +51,7 @@ const SettingsPage = ({ userData, onLogout, onPasswordChange, onAccountDelete })
           <SettingItem icon={<FaLock />} text="Manage Subscription" />
           <SettingItem icon={<FaUser />} text="Link Organization Subscription" />
           {/* <SettingItem icon={<FaUser />} text="Account Settings" /> */}
-          <div  className='setting-item' onClick={() => window.open('/update-password', '_blank', 'noopener,noreferrer')}>
+          <div  className='setting-item' onClick={() => window.open('/profile', '_blank', 'noopener,noreferrer')}>
             <FaUser />          
             <button className='SettingItem' >Account Settings</button>
           </div>
