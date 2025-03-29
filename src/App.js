@@ -6,7 +6,10 @@ import SignUp from "./components/user_auth/signup";
 import SignIn from "./components/user_auth/login";
 import Dashboard from "./components/home/Deshboard";
 import App1 from "./components/SetUp_State/index";
-
+import Setting from "./components/user_auth/SettingsPage";
+import Profile from "./components/user_auth/ProfilePage";
+import Updatepassword from "./components/setting/update-password";
+import LanguageSettingsPage from "./components/setting/LanguageSettingsPage"
 
 
 export default function App() {
@@ -32,6 +35,38 @@ export default function App() {
           element={
             <PrivateRoute>
               <App1 />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/setting"
+          element={
+            <PrivateRoute>
+              <Setting />
+            </PrivateRoute>
+          }
+        />
+         <Route
+          path="/profile"
+          element={
+            <PrivateRoute>
+              <Profile />
+            </PrivateRoute>
+          }
+        />
+      <Route
+          path="/update-password"
+          element={
+            <PrivateRoute>
+              <Updatepassword />
+            </PrivateRoute>
+          }
+        />
+              <Route
+          path="/language-settings"
+          element={
+            <PrivateRoute>
+              <LanguageSettingsPage  />
             </PrivateRoute>
           }
         />

@@ -4,7 +4,7 @@ import '../../styles/home/netflix.css'; // import the CSS file
 const OpeningTheme = () => {
     return (
         <div id="container">
-           <netflixintro letter="F">
+           <netflixintro letter="A">
             <div className="helper-1">
               <div className="effect-brush">
                 <span className="fur-31"></span>
