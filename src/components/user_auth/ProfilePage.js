@@ -53,7 +53,7 @@ const ProfilePage = ({ onUpdateProfile }) => {
   
     try {
       const response = await axios.put(
-        'http://localhost:5000/api/user/profile',
+        'https://server-avacus.vercel.app/api/user/profile',
         formData, // ✅ send form data as the body
         {
           headers: { Authorization: `${token}` }, // ✅ headers go in third argument
