@@ -3,9 +3,12 @@ import '../../styles/user_auth/SettingsPage.css';
 import { FaBell, FaDownload, FaKey, FaLanguage, FaLock, FaSignOutAlt, FaTrash, FaUser } from "react-icons/fa";
 import Switch from "../ui/switch";
 import Button from "../ui/button";
+import { useNavigate } from 'react-router-dom';
 
 
 const SettingsPage = ({ userData, onLogout, onPasswordChange, onAccountDelete }) => {
+    const navigate = useNavigate();
+  
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
   const handleAccountDelete = () => {
@@ -51,7 +54,7 @@ const SettingsPage = ({ userData, onLogout, onPasswordChange, onAccountDelete })
           <SettingItem icon={<FaLock />} text="Manage Subscription" />
           <SettingItem icon={<FaUser />} text="Link Organization Subscription" />
           {/* <SettingItem icon={<FaUser />} text="Account Settings" /> */}
-          <div  className='setting-item' onClick={() => window.open('/profile', '_blank', 'noopener,noreferrer')}>
+          <div  className='setting-item' onClick={()=>navigate('/profile')}>
             <FaUser />          
             <button className='SettingItem' >Account Settings</button>
           </div>

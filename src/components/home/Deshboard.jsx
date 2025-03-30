@@ -81,8 +81,12 @@ useEffect(() => {
   // Fetch user data from server
 // Modify your fetchUserData function to better handle errors
 const fetchUserData = (uid) => {
+  const token = localStorage.getItem('token');
+
   setIsLoading(true);
-  axios.get(`${API_URL}/performance/${uid}`)
+  axios.get(`${API_URL}/performance/${uid}`, {
+    headers: { Authorization: `${token}` }
+  })
     .then(response => {
       if (response.data) {
         console.log("Successfully loaded data from server:", response.data);

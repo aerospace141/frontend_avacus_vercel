@@ -21,7 +21,6 @@ const ProfilePage = ({ onUpdateProfile }) => {
       const token = localStorage.getItem('token');
 
       try {
-
         const response = await axios.get('https://server-avacus.vercel.app/api/user/profile', {
           headers: { Authorization: `${token}` }
         }); // Change URL as needed
