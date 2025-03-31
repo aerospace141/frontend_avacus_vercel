@@ -53,7 +53,7 @@ useEffect(() => {
       console.error("Authentication error:", err);
       // If token is invalid, remove it
       localStorage.removeItem('token');
-      setIsLoading(false);
+      // setIsLoading(false);
       
       // Fallback to local data
       loadLocalData();
@@ -62,7 +62,7 @@ useEffect(() => {
     console.log("No token found, loading local data");
     // No token, load from localStorage as fallback
     loadLocalData();
-    setIsLoading(false);
+    // setIsLoading(false);
   }
 }, []);
   
@@ -104,13 +104,13 @@ const fetchUserData = (uid) => {
         };
         setPerformanceData(emptyData);
       }
-      setIsLoading(false);
+      // setIsLoading(false);
     })
     .catch(err => {
       console.error("Error fetching user data:", err);
       setError("Could not load your data. Using local data instead.");
       loadLocalData();
-      setIsLoading(false);
+      // setIsLoading(false);
     });
 };
   // Generate some fake history data for visualization
