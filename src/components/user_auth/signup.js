@@ -158,7 +158,6 @@ const handleSubmit = async (e) => {
   try {
     const response = await axios.post("https://server-avacus.vercel.app/api/signup", {
       ...formData,
-      recaptchaToken: recaptchaValue,
       userId: `${formData.firstName}${formData.lastName}${Math.floor(100 + Math.random() * 900)}`.toLowerCase(),
     });
     if (response.status === 200) {
