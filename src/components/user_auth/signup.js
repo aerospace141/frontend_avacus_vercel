@@ -16,7 +16,7 @@ const Signup = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   // const [message, setMessage] = useState({ type: '', text: '' });
   // const [passwordMatch, setPasswordMatch] = useState(null);
-
+  const recaptchaRef = useRef();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -154,6 +154,16 @@ const handleSubmit = async (e) => {
     return;
   }
   
+
+
+
+
+  e.preventDefault();
+  const token = await recaptchaRef.current.executeAsync();
+  console.log("reCAPTCHA v3 token:", token);
+
+  
+  
   setLoading(true);
   try {
     const response = await axios.post("https://server-avacus.vercel.app/api/signup", {
@@ -191,7 +201,8 @@ return (
             />
           </div>
         ))}
-        <ReCAPTCHA sitekey="6Lc4pAYrAAAAACOdhs19wnUNpe8MQD_2uzZMcHQY" onChange={setRecaptchaValue} />
+        <ReCAPTCHA     ref={recaptchaRef}
+ sitekey="6Lc4pAYrAAAAACOdhs19wnUNpe8MQD_2uzZMcHQY" onChange={setRecaptchaValue} />
         <button type="submit" className="auth-button" disabled={!passwordMatch || loading}>
           {loading ? "Processing..." : "Sign Up"}
         </button>
