@@ -192,7 +192,7 @@ return (
             />
           </div>
         ))}
-        <ReCAPTCHA sitekey="6Lc6pAYrAAAAABlZ-N_g-oQTqq58FIT_Q5JGwADz" onChange={setRecaptchaValue} />
+        <ReCAPTCHA sitekey="6Lc4pAYrAAAAACOdhs19wnUNpe8MQD_2uzZMcHQY" onChange={setRecaptchaValue} />
         <button type="submit" className="auth-button" disabled={!passwordMatch || loading}>
           {loading ? "Processing..." : "Sign Up"}
         </button>
