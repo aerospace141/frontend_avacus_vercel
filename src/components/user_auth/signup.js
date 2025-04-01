@@ -197,7 +197,7 @@ return (
             />
           </div>
         ))}
-        <ReCAPTCHA ref={recaptchaRef} sitekey="6LdRtgYrAAAAACt-P9haO2AiBXexb1lie07wK3Hg" executeAsync={setRecaptchaValue}             
+        <ReCAPTCHA ref={recaptchaRef} sitekey="6LdRtgYrAAAAACt-P9haO2AiBXexb1lie07wK3Hg" onClick={setRecaptchaValue}             
  />
         <button type="submit" className="auth-button" disabled={!passwordMatch || loading}>
           {loading ? "Processing..." : "Sign Up"}
