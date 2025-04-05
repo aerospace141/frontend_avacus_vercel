@@ -5,7 +5,9 @@ import PrivateRoute from "./components/user_auth/PrivateRoute";
 import SignUp from "./components/user_auth/signup";
 import SignIn from "./components/user_auth/login";
 import Dashboard from "./components/home/Deshboard";
-import App1 from "./components/SetUp_State/index";
+import App1 from "./components/SetUp_State/index2";
+import App2 from "./components/SetUp_State/index";
+
 import Setting from "./components/user_auth/SettingsPage";
 import Profile from "./components/user_auth/ProfilePage";
 import Updatepassword from "./components/setting/update-password";
@@ -35,6 +37,14 @@ export default function App() {
           element={
             <PrivateRoute>
               <App1 />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/play2"
+          element={
+            <PrivateRoute>
+              <App2 />
             </PrivateRoute>
           }
         />
