@@ -51,8 +51,12 @@ const SettingsPage = ({ userData, onLogout, onPasswordChange, onAccountDelete })
       <div className="settings-container">
         <h2 className="settings-title">Settings</h2>
         <div className="settings-list">
-          <SettingItem icon={<FaLock />} text="Manage Subscription" />
-          <SettingItem icon={<FaUser />} text="Link Organization Subscription" />
+          <SettingItem icon={<FaLock />} text="Manage Subscription" />/
+                    <div  className='setting-item' onClick={() => navigate('/subscription')}>
+            <FaUser />          
+            <button className='SettingItem' >Link Organization Subscription</button>
+          </div>
+          {/* <SettingItem icon={<FaUser />} text="Link Organization Subscription" /> */}
           {/* <SettingItem icon={<FaUser />} text="Account Settings" /> */}
           <div  className='setting-item' onClick={()=>navigate('/profile')}>
             <FaUser />          

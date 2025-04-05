@@ -12,6 +12,7 @@ import Setting from "./components/user_auth/SettingsPage";
 import Profile from "./components/user_auth/ProfilePage";
 import Updatepassword from "./components/setting/update-password";
 import LanguageSettingsPage from "./components/setting/LanguageSettingsPage"
+import Subscription from "./components/setting/PricingPage"
 
 
 export default function App() {
@@ -80,6 +81,14 @@ export default function App() {
             </PrivateRoute>
           }
         />
+           <Route
+        path="/subscription"
+        element={
+          <PrivateRoute>
+            <Subscription  />
+          </PrivateRoute>
+        }
+      />
       </Routes>
     </Router>
   );
