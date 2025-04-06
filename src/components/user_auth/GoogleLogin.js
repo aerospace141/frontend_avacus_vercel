@@ -31,7 +31,7 @@ const Login = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:5000/api/login', {
+      const response = await fetch('https://server-avacus.vercel.app/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(loginData),
@@ -99,7 +99,7 @@ const Login = () => {
                   const userInfo = jwtDecode(credential);
                   console.log("Decoded Google User:", userInfo);
 
-                  const res = await fetch("http://localhost:5000/api/auth/google", {
+                  const res = await fetch("https://server-avacus.vercel.app/api/auth/google", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ token: credential }),

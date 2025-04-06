@@ -1,0 +1,68 @@
+[debug] [2025-04-06T17:45:26.734Z] ----------------------------------------------------------------------
+[debug] [2025-04-06T17:45:26.743Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\ag913\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2025-04-06T17:45:26.743Z] CLI Version:   14.1.0
+[debug] [2025-04-06T17:45:26.743Z] Platform:      win32
+[debug] [2025-04-06T17:45:26.743Z] Node Version:  v22.14.0
+[debug] [2025-04-06T17:45:26.744Z] Time:          Sun Apr 06 2025 23:15:26 GMT+0530 (India Standard Time)
+[debug] [2025-04-06T17:45:26.744Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-04-06T17:45:26.977Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-04-06T17:45:26.978Z] > authorizing via signed-in user (aerospace141@gmail.com)
+[debug] [2025-04-06T17:45:26.978Z] [iam] checking project abacusz for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-04-06T17:45:26.980Z] Checked if tokens are valid: true, expires at: 1743964899892
+[debug] [2025-04-06T17:45:26.980Z] Checked if tokens are valid: true, expires at: 1743964899892
+[debug] [2025-04-06T17:45:26.981Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/abacusz:testIamPermissions [none]
+[debug] [2025-04-06T17:45:26.981Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/abacusz:testIamPermissions x-goog-quota-user=projects/abacusz
+[debug] [2025-04-06T17:45:26.981Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/abacusz:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-04-06T17:45:29.371Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/abacusz:testIamPermissions 200
+[debug] [2025-04-06T17:45:29.371Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/abacusz:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-04-06T17:45:29.372Z] Checked if tokens are valid: true, expires at: 1743964899892
+[debug] [2025-04-06T17:45:29.372Z] Checked if tokens are valid: true, expires at: 1743964899892
+[debug] [2025-04-06T17:45:29.372Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/abacusz [none]
+[debug] [2025-04-06T17:45:30.848Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/abacusz 200
+[debug] [2025-04-06T17:45:30.848Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/abacusz {"projectId":"abacusz","projectNumber":"341108645467","displayName":"Abacus","name":"projects/abacusz","resources":{"hostingSite":"abacusz"},"state":"ACTIVE","etag":"1_a070115c-c6dd-4908-acf8-960f95f82937"}
+[info] 
+[info] === Deploying to 'abacusz'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2025-04-06T17:45:30.858Z] Checked if tokens are valid: true, expires at: 1743964899892
+[debug] [2025-04-06T17:45:30.858Z] Checked if tokens are valid: true, expires at: 1743964899892
+[debug] [2025-04-06T17:45:30.858Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/abacusz/versions [none]
+[debug] [2025-04-06T17:45:30.858Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/abacusz/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2025-04-06T17:45:32.573Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/abacusz/versions 200
+[debug] [2025-04-06T17:45:32.573Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/abacusz/versions {"name":"projects/341108645467/sites/abacusz/versions/f8fd5866b168c098","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[abacusz]: beginning deploy... 
+[info] i  hosting[abacusz]: found 14 files in build 
+[debug] [2025-04-06T17:45:32.601Z] [hosting] uploading with 200 concurrency
+[debug] [2025-04-06T17:45:33.576Z] Checked if tokens are valid: true, expires at: 1743964899892
+[debug] [2025-04-06T17:45:33.577Z] Checked if tokens are valid: true, expires at: 1743964899892
+[debug] [2025-04-06T17:45:33.579Z] [hosting] hash cache [YnVpbGQ] stored for 14 files
+[debug] [2025-04-06T17:45:33.579Z] [hosting][hash queue][FINAL] {"max":966,"min":4,"avg":84.57142857142857,"active":0,"complete":14,"success":14,"errored":0,"retried":0,"total":14,"elapsed":975}
+[debug] [2025-04-06T17:45:33.579Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/341108645467/sites/abacusz/versions/f8fd5866b168c098:populateFiles [none]
+[debug] [2025-04-06T17:45:33.580Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/341108645467/sites/abacusz/versions/f8fd5866b168c098:populateFiles {"files":{"/robots.txt":"bfe106a3fb878dc83461c86818bf74fc1bdc7f28538ba613cd3e775516ce8b49","/manifest.json":"ee04fb47e525c67d8424ffe9b4d8a8a24e434504478afca4e0ca602146836d4c","/logo512.png":"212b102aa09e51b3b3e06647e81f7801a61333e171f6582e8124379aabccb41d","/logo192.png":"79e2b749561016bc8af300ea19f48347ceed3cb1a54f48ae456172eca45e08f0","/favicon.ico":"27edce7be5922cf0bef7d4136f69b5bfbdd5bf8c13c7b026f71187d41a00aa7d","/index.html":"b81ec4d513ad3040ccb90d9f4f7f044d3217c04081dfe2aa1183a6e3887c1ffa","/asset-manifest.json":"a7258ebb2fe6738695058442de4d7249df8783a7db2b2ba828cbf8feed953cbb","/static/js/main.005b697c.js.LICENSE.txt":"531293b25989ce893564710a807f062aa36e3f8da2485eccfb786e22130501a9","/static/js/453.8ab44547.chunk.js.map":"57a02e9b4d5178bed7b51450024e42ef3b0fcfd3e2e5a0994a34e22a1ab6d1e5","/static/js/453.8ab44547.chunk.js":"2ce661419cddca8b7b5db92aabf29dcb9166c1ee5e192dcb0453c71b2a5e29b1","/static/css/main.1cf2b4e9.css":"cf25a28274ac67af526f7636c16d21e1d92157b006da34642d6635ca7ea0c91c","/static/css/main.1cf2b4e9.css.map":"a552a6b7979ef6495fafbd3992af151fb5c2b45c405038fe77de0e83a953692e","/static/js/main.005b697c.js":"af54b0417ccf66d1abb57b7935e9a442935384b2ef4fc4af7354b931c774a04c","/static/js/main.005b697c.js.map":"ae5c7a01ee11d002ceae9dd03db95ca7bc06ab0b0721a8f3351ed022cebb0804"}}
+[debug] [2025-04-06T17:45:34.289Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/341108645467/sites/abacusz/versions/f8fd5866b168c098:populateFiles 200
+[debug] [2025-04-06T17:45:34.289Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/341108645467/sites/abacusz/versions/f8fd5866b168c098:populateFiles {"uploadRequiredHashes":["af54b0417ccf66d1abb57b7935e9a442935384b2ef4fc4af7354b931c774a04c","b81ec4d513ad3040ccb90d9f4f7f044d3217c04081dfe2aa1183a6e3887c1ffa","ae5c7a01ee11d002ceae9dd03db95ca7bc06ab0b0721a8f3351ed022cebb0804","a7258ebb2fe6738695058442de4d7249df8783a7db2b2ba828cbf8feed953cbb"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/abacusz/versions/f8fd5866b168c098/files"}
+[debug] [2025-04-06T17:45:34.290Z] Checked if tokens are valid: true, expires at: 1743964899892
+[debug] [2025-04-06T17:45:34.290Z] Checked if tokens are valid: true, expires at: 1743964899892
+[debug] [2025-04-06T17:45:34.290Z] Checked if tokens are valid: true, expires at: 1743964899892
+[debug] [2025-04-06T17:45:34.290Z] Checked if tokens are valid: true, expires at: 1743964899892
+[debug] [2025-04-06T17:45:34.291Z] Checked if tokens are valid: true, expires at: 1743964899892
+[debug] [2025-04-06T17:45:34.291Z] Checked if tokens are valid: true, expires at: 1743964899892
+[debug] [2025-04-06T17:45:34.291Z] Checked if tokens are valid: true, expires at: 1743964899892
+[debug] [2025-04-06T17:45:34.291Z] Checked if tokens are valid: true, expires at: 1743964899892
+[debug] [2025-04-06T17:45:34.291Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/abacusz/versions/f8fd5866b168c098/files/af54b0417ccf66d1abb57b7935e9a442935384b2ef4fc4af7354b931c774a04c [none]
+[debug] [2025-04-06T17:45:34.291Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/abacusz/versions/f8fd5866b168c098/files/af54b0417ccf66d1abb57b7935e9a442935384b2ef4fc4af7354b931c774a04c [stream]
+[debug] [2025-04-06T17:45:34.293Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/abacusz/versions/f8fd5866b168c098/files/b81ec4d513ad3040ccb90d9f4f7f044d3217c04081dfe2aa1183a6e3887c1ffa [none]
+[debug] [2025-04-06T17:45:34.293Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/abacusz/versions/f8fd5866b168c098/files/b81ec4d513ad3040ccb90d9f4f7f044d3217c04081dfe2aa1183a6e3887c1ffa [stream]
+[debug] [2025-04-06T17:45:34.295Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/abacusz/versions/f8fd5866b168c098/files/ae5c7a01ee11d002ceae9dd03db95ca7bc06ab0b0721a8f3351ed022cebb0804 [none]
+[debug] [2025-04-06T17:45:34.295Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/abacusz/versions/f8fd5866b168c098/files/ae5c7a01ee11d002ceae9dd03db95ca7bc06ab0b0721a8f3351ed022cebb0804 [stream]
+[debug] [2025-04-06T17:45:34.297Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/abacusz/versions/f8fd5866b168c098/files/a7258ebb2fe6738695058442de4d7249df8783a7db2b2ba828cbf8feed953cbb [none]
+[debug] [2025-04-06T17:45:34.297Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/abacusz/versions/f8fd5866b168c098/files/a7258ebb2fe6738695058442de4d7249df8783a7db2b2ba828cbf8feed953cbb [stream]
+[debug] [2025-04-06T17:45:34.299Z] [hosting][populate queue][FINAL] {"max":715,"min":715,"avg":715,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":723}
+[debug] [2025-04-06T17:45:34.299Z] [hosting] uploads queued: 4
+[debug] [2025-04-06T17:45:36.245Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/abacusz/versions/f8fd5866b168c098/files/a7258ebb2fe6738695058442de4d7249df8783a7db2b2ba828cbf8feed953cbb 200
+[debug] [2025-04-06T17:45:36.245Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/abacusz/versions/f8fd5866b168c098/files/a7258ebb2fe6738695058442de4d7249df8783a7db2b2ba828cbf8feed953cbb [stream]
+[debug] [2025-04-06T17:45:36.271Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/abacusz/versions/f8fd5866b168c098/files/b81ec4d513ad3040ccb90d9f4f7f044d3217c04081dfe2aa1183a6e3887c1ffa 200
+[debug] [2025-04-06T17:45:36.271Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/abacusz/versions/f8fd5866b168c098/files/b81ec4d513ad3040ccb90d9f4f7f044d3217c04081dfe2aa1183a6e3887c1ffa [stream]
+[debug] [2025-04-06T17:45:37.676Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/abacusz/versions/f8fd5866b168c098/files/af54b0417ccf66d1abb57b7935e9a442935384b2ef4fc4af7354b931c774a04c 200
+[debug] [2025-04-06T17:45:37.676Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/abacusz/versions/f8fd5866b168c098/files/af54b0417ccf66d1abb57b7935e9a442935384b2ef4fc4af7354b931c774a04c [stream]
