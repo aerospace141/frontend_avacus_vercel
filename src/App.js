@@ -91,11 +91,11 @@ export default function App() {
           </PrivateRoute>
         }
       />
-              <Route
+        <Route
         path="/gl"
         element={
           // <PrivateRoute>      
-            <GoogleOAuthProvider clientId="679832363574-9don8skic3d6n3r8geli6ippcbrip1pe.apps.googleusercontent.com">
+        <GoogleOAuthProvider clientId="679832363574-9don8skic3d6n3r8geli6ippcbrip1pe.apps.googleusercontent.com">
 
 
             <GL  />
