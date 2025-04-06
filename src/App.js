@@ -14,6 +14,7 @@ import Profile from "./components/user_auth/ProfilePage";
 import Updatepassword from "./components/setting/update-password";
 import LanguageSettingsPage from "./components/setting/LanguageSettingsPage"
 import Subscription from "./components/setting/PricingPage"
+import GL from "./components/user_auth/GoogleLogin" 
 
 
 export default function App() {
