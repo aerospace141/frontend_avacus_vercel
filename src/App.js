@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import PrivateRoute from "./components/user_auth/PrivateRoute";
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 import SignUp from "./components/user_auth/signup";
 import SignIn from "./components/user_auth/login";
@@ -87,6 +88,18 @@ export default function App() {
           <PrivateRoute>
             <Subscription  />
           </PrivateRoute>
+        }
+      />
+              <Route
+        path="/gl"
+        element={
+          // <PrivateRoute>      
+            <GoogleOAuthProvider clientId="679832363574-9don8skic3d6n3r8geli6ippcbrip1pe.apps.googleusercontent.com">
+
+
+            <GL  />
+                  </GoogleOAuthProvider>
+          // </PrivateRoute>
         }
       />
       </Routes>
