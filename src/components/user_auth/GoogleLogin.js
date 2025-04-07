@@ -42,6 +42,8 @@ const Login = () => {
       if (response.ok) {
         const token = responseData.token;
         if (token) {
+          showMessage("success", "User SignIn successfully!");
+
           localStorage.setItem('token', token);
           window.location.href = '/';
         }
@@ -51,6 +53,8 @@ const Login = () => {
     } catch (error) {
       console.error('Login error:', error);
       showMessage('error', 'Error during login. Please try again later.');
+      showMessage("error", error.response?.data?.error || "Failed.");
+
     }
   };
 
@@ -89,8 +93,11 @@ const Login = () => {
             <button type="submit" className="auth-button">SIGN IN</button>
           </form>
 
-          <div style={{ marginTop: '20px', textAlign: 'center' }}>
-            <GoogleLogin
+          <div className="social-login-container">
+                <div className="divider">
+                  <span>OR</span>
+                </div>             
+                <GoogleLogin
               onSuccess={async (credentialResponse) => {
                 try {
                   const { credential } = credentialResponse;

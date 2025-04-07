@@ -4,7 +4,7 @@ import PrivateRoute from "./components/user_auth/PrivateRoute";
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
 import SignUp from "./components/user_auth/signup";
-import SignIn from "./components/user_auth/login";
+import SignIn from "./components/user_auth/GoogleLogin";
 import Dashboard from "./components/home/Deshboard";
 import App1 from "./components/SetUp_State/index2";
 import App2 from "./components/SetUp_State/index";
