@@ -554,7 +554,7 @@ const gameDistribution = Object.entries(performanceData.gameTypes || {});
                 <div className="mpd-progress-row">
                   <div className="flex justify-between mb-1">
                     <div className="text-sm">Speed Performance</div>
-                    <div className="text-sm font-bold">{accuracyRate}%</div>
+                    <div className="text-sm font-bold">{speedRate}%</div>
                   </div>
                   <div className="mpd-progress-bg h-2 bg-slate-700 rounded-full">
                     <div 
