@@ -6,7 +6,6 @@ import "../../styles/user_auth/login.css"
 import Message from "../ui/alert";
 import ReCAPTCHA from "react-google-recaptcha";
 
-
 const Signup = () => {
   // const [firstName, setFirstName] = useState("");
   // const [lastName, setLastName] = useState("");
@@ -197,8 +196,8 @@ return (
             />
           </div>
         ))}
-        <ReCAPTCHA  sitekey="6Lc4pAYrAAAAACOdhs19wnUNpe8MQD_2uzZMcHQY" onChange={setRecaptchaValue}             size="invisible"
- />
+        {/* <ReCAPTCHA  sitekey="6Lc4pAYrAAAAACOdhs19wnUNpe8MQD_2uzZMcHQY" onChange={setRecaptchaValue}             size="invisible"
+ /> */}
         <button type="submit" className="auth-button" disabled={!passwordMatch || loading}>
           {loading ? "Processing..." : "Sign Up"}
         </button>
