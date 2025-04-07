@@ -149,20 +149,20 @@ const handleSubmit = async (e) => {
     showMessage("error", "Passwords do not match.");
     return;
   }
-  if (!recaptchaValue) {
-    showMessage("error", "Please complete the CAPTCHA.");
-    return;
-  }
+  // if (!recaptchaValue) {
+  //   showMessage("error", "Please complete the CAPTCHA.");
+  //   return;
+  // }
   
 
   
   setLoading(true);
   try {
-    const recaptchaToken = await recaptchaRef.current.executeAsync();
+    // const recaptchaToken = await recaptchaRef.current.executeAsync();
     
     const response = await axios.post("https://server-avacus.vercel.app/api/signup", {
       ...formData,
-      recaptchaToken, // Send the token to your backend
+      // recaptchaToken, // Send the token to your backend
       userId: `${formData.firstName}${formData.lastName}${Math.floor(100 + Math.random() * 900)}`.toLowerCase(),
     });
     if (response.status === 200) {
