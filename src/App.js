@@ -103,6 +103,8 @@ export default function App() {
           // </PrivateRoute>
         }
       />
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6948409315047214"
+     crossorigin="anonymous"></script>
       </Routes>
     </Router>
   );

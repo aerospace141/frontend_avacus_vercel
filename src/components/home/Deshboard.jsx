@@ -639,9 +639,17 @@ const gameDistribution = Object.entries(performanceData.gameTypes || {});
           <span className="text-xs mt-1 text-slate-400">Settings</span>
         </button>
       </div>
-      
+
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6948409315047214"
      crossorigin="anonymous"></script>
+         <ins
+      className="adsbygoogle"
+      style={{ display: "block" }}
+      data-ad-client="ca-pub-6948409315047214"
+      data-ad-slot="f08c47fec0942fa0"
+      data-ad-format="auto"
+      data-full-width-responsive="true"
+    ></ins>
 
     </div>
   );
