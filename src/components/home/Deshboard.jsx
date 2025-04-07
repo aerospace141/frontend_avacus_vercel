@@ -227,6 +227,7 @@ const gameDistribution = Object.entries(performanceData.gameTypes || {});
     }
 
   return (
+
     <div className="mpd-container bg-slate-900 text-white min-h-screen">
       <div className="mpd-header p-4 border-b border-slate-700 flex items-center justify-between">
         <div className="mpd-logo flex items-center">
@@ -638,6 +639,10 @@ const gameDistribution = Object.entries(performanceData.gameTypes || {});
           <span className="text-xs mt-1 text-slate-400">Settings</span>
         </button>
       </div>
+      
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6948409315047214"
+     crossorigin="anonymous"></script>
+
     </div>
   );
 };

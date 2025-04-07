@@ -1202,6 +1202,8 @@ const renderResult = () => {
       {appState === 'setup' && renderSetup()}
       {appState === 'game' && renderGame()}
       {appState === 'result' && renderResult()}
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6948409315047214"
+     crossorigin="anonymous"></script>
     </div>
   );
 };
