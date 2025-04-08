@@ -10,6 +10,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState({ type: '', text: '' });
+  const [loading, setLoading] = useState(false);
 
   const showMessage = (type, text) => {
     setMessage({ type, text });
@@ -29,6 +30,7 @@ const Login = () => {
       mobileNumber: email,
       password,
     };
+    setLoading(true);
 
     try {
       const response = await fetch('https://server-avacus.vercel.app/api/login', {
@@ -56,6 +58,8 @@ const Login = () => {
       showMessage("error", error.response?.data?.error || "Failed.");
 
     }
+    setLoading(false);
+
   };
 
   return (
@@ -90,7 +94,10 @@ const Login = () => {
               />
             </div>
 
-            <button type="submit" className="auth-button">SIGN IN</button>
+            <button type="submit" className="auth-button" disabled={loading}>
+            {loading ? "Processing..." : "SIGN IN"}
+
+            </button>
           </form>
 
           <div className="social-login-container">

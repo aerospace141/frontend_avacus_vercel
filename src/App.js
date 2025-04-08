@@ -24,7 +24,12 @@ export default function App() {
       <Routes>
         {/* Public Routes */}
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signin" element={
+            <GoogleOAuthProvider clientId="679832363574-9don8skic3d6n3r8geli6ippcbrip1pe.apps.googleusercontent.com">
+              <SignIn />
+            </GoogleOAuthProvider>
+
+          } />
 
         {/* Private Routes */}
         <Route
