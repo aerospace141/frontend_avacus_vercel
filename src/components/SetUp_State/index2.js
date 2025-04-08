@@ -1105,6 +1105,8 @@ const renderSetup = () => (
 );
 
 const renderGame = () => (
+  <div className='ask-q'>
+
   <div className="avc-game-container">
       {showingNumbers ? (
           <div>
@@ -1140,6 +1142,8 @@ const renderGame = () => (
           </div>
       )}
   </div>
+  </div>
+
 );
 
 const renderResult = () => {

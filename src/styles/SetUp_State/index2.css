@@ -89,7 +89,10 @@
   }
   
   /* General layout and base styles */
-  .avc-page-background {
+  .avc-page-background
+  ,.ask-q 
+
+  {
     background: linear-gradient(135deg, var(--avc-bg-primary) 0%, var(--avc-bg-secondary) 100%);
     min-height: 100vh;
     display: flex;
