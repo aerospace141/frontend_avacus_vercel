@@ -105,12 +105,13 @@ const Login = () => {
                   <span>OR</span>
                 </div>             
                 <GoogleLogin
-              onSuccess={async (credentialResponse) => {
+                    onSuccess={async (credentialResponse) => {
                 try {
                   const { credential } = credentialResponse;
 
                   // Optional: Decode and see user data
                   const userInfo = jwtDecode(credential);
+                  console.log(" Google User:", credential);
                   console.log("Decoded Google User:", userInfo);
 
                   const res = await fetch("https://server-avacus.vercel.app/api/auth/google", {
