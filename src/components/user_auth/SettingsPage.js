@@ -65,7 +65,7 @@ const SettingsPage = ({ userData, onLogout, onPasswordChange, onAccountDelete })
     localStorage.removeItem('token');
   
     // Redirect the user to the login page
-    navigate('/login');
+    navigate('/signin');
   };
 
   const handleOpenPasswordUpdate = () => {
