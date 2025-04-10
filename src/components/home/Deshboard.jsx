@@ -4,6 +4,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import { useNavigate } from 'react-router-dom';
 import Netflix from "../../components/home/netflix";
 import { ThreeDot } from 'react-loading-indicators';
+import { vendorLogoUrl } from '../../styles/logo/logo.jpg'; 
 
 // import { Bar, Line } from 'recharts';
 import "../../styles/home/Deshboard.css"
@@ -231,9 +232,14 @@ const gameDistribution = Object.entries(performanceData.gameTypes || {});
     <div className="mpd-container bg-slate-900 text-white min-h-screen">
       <div className="mpd-header p-4 border-b border-slate-700 flex items-center justify-between">
         <div className="mpd-logo flex items-center">
-          <div className="mpd-logo-circle bg-pink-600 h-8 w-8 rounded-full flex items-center justify-center">
-            <span className="font-bold">B</span>
+                  <div className="mpd-logo-circle bg-pink-600 h-8 w-8 rounded-full flex items-center justify-center overflow-hidden">
+            {vendorLogoUrl ? (
+              <img src={vendorLogoUrl} alt="Vendor Logo" className="h-full w-full object-contain" />
+            ) : (
+              <span className="text-white font-bold">{vendorInitial || 'B'}</span>
+            )}
           </div>
+
           <span className="ml-2 font-bold">{userId?.name}</span>
         </div>
         <div className="mpd-actions flex items-center">

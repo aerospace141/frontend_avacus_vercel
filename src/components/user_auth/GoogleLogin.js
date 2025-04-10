@@ -122,7 +122,7 @@ const Login = () => {
 
                   const data = await res.json();
 
-                  if (res.ok) {
+                  if (data.success) {
                     localStorage.setItem('token', data.token);
                     window.location.href = '/';
                   } else {
