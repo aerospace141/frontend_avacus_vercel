@@ -4,7 +4,8 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import { useNavigate } from 'react-router-dom';
 import Netflix from "../../components/home/netflix";
 import { ThreeDot } from 'react-loading-indicators';
-import { vendorLogoUrl } from '../../styles/logo/logo.jpg'; 
+import vendorLogoUrl  from '../../styles/logo/logo.jpg'; 
+import vendorInitial from '../../styles/logo/logo.jpg';
 
 // import { Bar, Line } from 'recharts';
 import "../../styles/home/Deshboard.css"
