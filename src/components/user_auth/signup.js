@@ -5,6 +5,7 @@ import axios from "axios";
 import "../../styles/user_auth/login.css"
 import Message from "../ui/alert";
 import ReCAPTCHA from "react-google-recaptcha";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 const Signup = () => {
   // const [firstName, setFirstName] = useState("");
@@ -30,6 +31,7 @@ const Signup = () => {
   const [passwordMatch, setPasswordMatch] = useState(null);
   const [loading, setLoading] = useState(false);
   const [recaptchaValue, setRecaptchaValue] = useState(null);
+  const [token, setToken] = useState(null);
 
 
   const showMessage = (type, text) => {
@@ -154,6 +156,10 @@ const handleSubmit = async (e) => {
   //   return;
   // }
   
+  if (!token) {
+    alert('Please complete the CAPTCHA');
+    return;
+  }
 
   
   setLoading(true);
@@ -164,6 +170,8 @@ const handleSubmit = async (e) => {
       ...formData,
       // recaptchaToken, // Send the token to your backend
       userId: `${formData.firstName}${formData.lastName}${Math.floor(100 + Math.random() * 900)}`.toLowerCase(),
+      token,
+
     });
     if (response.status === 200) {
       showMessage("success", "User registered successfully!");
@@ -198,6 +206,13 @@ return (
         ))}
         {/* <ReCAPTCHA  sitekey="6Lc4pAYrAAAAACOdhs19wnUNpe8MQD_2uzZMcHQY" onChange={setRecaptchaValue}             size="invisible"
  /> */}
+
+        <HCaptcha
+          sitekey="5802b3c2-cac6-4ae0-b450-107cb7244ace" // ← Replace with your real key
+          onVerify={(token) => setToken(token)}
+          onExpire={() => setToken(null)}
+        />
+        
         <button type="submit" className="auth-button" disabled={!passwordMatch || loading}>
           {loading ? "Processing..." : "Sign Up"}
         </button>
