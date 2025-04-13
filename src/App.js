@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import PrivateRoute from "./components/user_auth/PrivateRoute";
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
-import SignUp from "./components/user_auth/signup";
+import CombinedAuth from "./components/user_auth/signup";
 import SignIn from "./components/user_auth/GoogleLogin";
 import Dashboard from "./components/home/Deshboard";
 import App1 from "./components/SetUp_State/index2";
@@ -15,7 +15,7 @@ import Updatepassword from "./components/setting/update-password";
 import LanguageSettingsPage from "./components/setting/LanguageSettingsPage"
 import Subscription from "./components/setting/PricingPage"
 import GL from "./components/user_auth/GoogleLogin" 
-
+import SignUp from "./components/user_auth/CombinedAuth";
 
 export default function App() {
 
@@ -30,6 +30,8 @@ export default function App() {
             </GoogleOAuthProvider>
 
           } />
+                  <Route path="/ca" element={<CombinedAuth />} />
+
 
         {/* Private Routes */}
         <Route
