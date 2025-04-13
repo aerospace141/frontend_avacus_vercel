@@ -82,10 +82,10 @@ const CombinedAuth = () => {
         return;
       }
     
-      if (!token) {
-        alert('Please complete the CAPTCHA');
-        return;
-      }
+    //   if (!token) {
+    //     alert('Please complete the CAPTCHA');
+    //     return;
+    //   }
     
       // Don't send data to backend yet
       try {
@@ -259,7 +259,8 @@ const CombinedAuth = () => {
 
                   className="otp-input"
                 />
-              ))}
+             ))
+             }
             </div>
             <button onClick={verifyOtp} className="otp-button">
               Verify OTP
