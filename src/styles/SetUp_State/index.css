@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 /* Black Theme Styles for AvecusApp */
-body {
+/* body {
     background-color: #121212;
     color: #ffffff; 
-}
+} */
 
 /* .app-container {
     min-height: 100vh;
