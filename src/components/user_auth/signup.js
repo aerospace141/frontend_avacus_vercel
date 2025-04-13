@@ -32,7 +32,7 @@ const Signup = () => {
   const [loading, setLoading] = useState(false);
   const [recaptchaValue, setRecaptchaValue] = useState(null);
   const [token, setToken] = useState(null);
-
+ 
 
   const showMessage = (type, text) => {
     setMessage({ type, text });

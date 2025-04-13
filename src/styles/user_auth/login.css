@@ -9,16 +9,33 @@
     font-family: 'Arial', sans-serif;
     background-color: var(--deep-blue);
   }
+
   
-  .auth-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* height: 100vh; */
-    height: 100%;
-    padding: 20px;
-    background: linear-gradient(to bottom, var(--deep-blue), var(--bright-blue));
-  }
+.auth-container_signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 20px;
+  background: linear-gradient(to bottom, var(--deep-blue), var(--bright-blue));
+}
+/* .log-body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 20px;
+  background: linear-gradient(to bottom, var(--deep-blue), var(--bright-blue));
+} */
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* padding: 20px; */
+  background: linear-gradient(to bottom, var(--deep-blue), var(--bright-blue));
+}
   
   .auth-form {
     width: 350px;
