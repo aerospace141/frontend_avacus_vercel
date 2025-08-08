@@ -187,21 +187,21 @@ const gameDistribution = Object.entries(performanceData.gameTypes || {});
     });
   }
 
-  useEffect(() => {
-    const currentTime = Date.now();
-    const lastShownTime = localStorage.getItem("lastShownTime");
+  // useEffect(() => {
+  //   const currentTime = Date.now();
+  //   const lastShownTime = localStorage.getItem("lastShownTime");
     
-    if (!lastShownTime || currentTime - Number(lastShownTime) >= 15000) {
-      setShowImage(true);
+  //   if (!lastShownTime || currentTime - Number(lastShownTime) >= 15000) {
+  //     setShowImage(true);
       
-      const timer = setTimeout(() => {
-        setShowImage(false);
-        localStorage.setItem("lastShownTime", Date.now().toString()); // Move inside timeout
-      }, 5000);
+  //     const timer = setTimeout(() => {
+  //       setShowImage(false);
+  //       localStorage.setItem("lastShownTime", Date.now().toString()); // Move inside timeout
+  //     }, 5000);
     
-      return () => clearTimeout(timer);
-    }
-    }, []);
+  //     return () => clearTimeout(timer);
+  //   }
+  //   }, []);
     
     
     

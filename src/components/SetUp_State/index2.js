@@ -64,13 +64,13 @@ const AvecusApp = () => {
       .catch(err => {
         console.error("Authentication error:", err);
         localStorage.removeItem('token');
-        setIsLoading(false);
+        // setIsLoading(false);
         loadLocalData();
       });
     } else {
       console.log("No token found, loading local data");
       loadLocalData();
-      setIsLoading(false);
+      // setIsLoading(false);
     }
   }, []);
   
@@ -88,7 +88,7 @@ const AvecusApp = () => {
   const fetchUserData = (uid) => {
     const token = localStorage.getItem('token');
 
-    setIsLoading(true);
+    // setIsLoading(true);
     axios.get(`${API_URL}/performance/${uid}`, {
       headers: { Authorization: `${token}` }
     })
@@ -108,13 +108,13 @@ const AvecusApp = () => {
           };
           setPerformanceData(emptyData);
         }
-        setIsLoading(false);
+        // setIsLoading(false);
       })
       .catch(err => {
         console.error("Error fetching user data:", err);
         setError("Could not load your data. Using local data instead.");
         loadLocalData();
-        setIsLoading(false);
+        // setIsLoading(false);
       });
   };
   
@@ -145,14 +145,14 @@ const AvecusApp = () => {
     }
   }, [performanceData, userId, isLoading]);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      const savedData = localStorage.getItem('avecusPerformance');
-      console.log("Data persistence check:", savedData ? "Data exists in localStorage" : "No data in localStorage");
-    }, 5000);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     const savedData = localStorage.getItem('avecusPerformance');
+  //     console.log("Data persistence check:", savedData ? "Data exists in localStorage" : "No data in localStorage");
+  //   }, 5000);
     
-    return () => clearTimeout(timer);
-  }, []);
+  //   return () => clearTimeout(timer);
+  // }, []);
   
   // Updated gameModes with the three new math operation games at the top
   const gameModes = [
@@ -968,27 +968,27 @@ case 'totalSubtraction':
     // No need to clear performance data as we want to keep local progress
   };
 
-  useEffect(() => {
-    // Simulate loading time and show Netflix-style loading animation
-    if (appState === 'setup') {
-      setLoading(true);
-      setShowImage(true);
-      setTimeout(() => {
-        setLoading(false);
-      }, 2000);
-    }
-  }, [appState]);
+  // useEffect(() => {
+  //   // Simulate loading time and show Netflix-style loading animation
+  //   if (appState === 'setup') {
+  //     setLoading(true);
+  //     setShowImage(true);
+  //     setTimeout(() => {
+  //       setLoading(false);
+  //     }, 2000);
+  //   }
+  // }, [appState]);
 
-  if (loading && showImage) {
-    return (
-      <div className="flex flex-col items-center justify-center h-screen bg-gray-900">
-        <Netflix />
-        <div className="mt-8">
-          <ThreeDot color="#E50914" size="medium" />
-        </div>
-      </div>
-    );
-  }
+  // if (loading && showImage) {
+  //   return (
+  //     <div className="flex flex-col items-center justify-center h-screen bg-gray-900">
+  //       <Netflix />
+  //       <div className="mt-8">
+  //         <ThreeDot color="#E50914" size="medium" />
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
   const renderLoginState = () => {
     const token = localStorage.getItem('token');

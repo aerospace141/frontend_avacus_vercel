@@ -1,6 +1,25 @@
 import React, { useState } from "react";
 import "../../styles/user_auth/login.css"
 import { useNavigate } from 'react-router-dom';
+import Message from "../ui/alert";
+import axios from 'axios';
+
+// Generate device fingerprint
+const generateDeviceFingerprint = () => {
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  ctx.textBaseline = 'top';
+  ctx.font = '14px Arial';
+  ctx.fillText('Device fingerprint', 2, 2);
+  
+  return btoa(
+    navigator.userAgent +
+    navigator.language +
+    screen.width + 'x' + screen.height +
+    new Date().getTimezoneOffset() +
+    canvas.toDataURL()
+  ).substring(0, 32);
+};
 
 const Login = () => {
   const navigate = useNavigate();
@@ -13,7 +32,7 @@ const Login = () => {
     const loginData = {
       mobileNumber: email,
       password
-    };
+    }; 
 
     try {
       const response = await fetch('https://server-avacus.vercel.app/api/login', {

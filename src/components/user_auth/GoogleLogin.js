@@ -5,6 +5,24 @@ import Message from "../ui/alert";
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from 'jwt-decode';
 
+
+// Generate device fingerprint
+const generateDeviceFingerprint = () => {
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  ctx.textBaseline = 'top';
+  ctx.font = '14px Arial';
+  ctx.fillText('Device fingerprint', 2, 2);
+  
+  return btoa(
+    navigator.userAgent +
+    navigator.language +
+    screen.width + 'x' + screen.height +
+    new Date().getTimezoneOffset() +
+    canvas.toDataURL()
+  ).substring(0, 32);
+};
+
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -24,11 +42,36 @@ const Login = () => {
     return () => clearTimeout(timer);
   }, [message]);
 
+    // Setup axios interceptor for automatic logout detection
+  useEffect(() => {
+    const interceptor = axios.interceptors.response.use(
+      (response) => response,
+      (error) => {
+        if (error.response?.data?.forceLogout) {
+          localStorage.removeItem('token');
+          localStorage.removeItem('deviceId');
+          showMessage('error', error.response.data.message);
+          setTimeout(() => {
+            window.location.href = '/signin';
+          }, 2000);
+        }
+        return Promise.reject(error);
+      }
+    );
+
+    return () => axios.interceptors.response.eject(interceptor);
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const deviceFingerprint = generateDeviceFingerprint();
+
     const loginData = {
       mobileNumber: email,
       password,
+      deviceFingerprint // Add device fingerprint
+
     };
     setLoading(true);
 
@@ -43,11 +86,23 @@ const Login = () => {
 
       if (response.ok) {
         const token = responseData.token;
-        if (token) {
+      const { deviceId } = responseData;
+
+        if (token && deviceId) {
           showMessage("success", "User SignIn successfully!");
 
           localStorage.setItem('token', token);
-          window.location.href = '/';
+
+          localStorage.setItem('deviceId', deviceId);
+
+              // Set default authorization header for future requests
+          axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+          
+          showMessage('success', 'Login successful!');
+          setTimeout(() => {
+            window.location.href = '/';
+          }, 1000);
+          
         }
       } else {
         showMessage('error', responseData.error || 'Login failed. Please try again.');
