@@ -17,11 +17,12 @@ const generateDeviceFingerprint = () => {
   return btoa(
     navigator.userAgent +
     navigator.language +
-    screen.width + 'x' + screen.height +
+    window.screen.width + 'x' + window.screen.height +
     new Date().getTimezoneOffset() +
     canvas.toDataURL()
   ).substring(0, 32);
 };
+
 
 const Login = () => {
   const navigate = useNavigate();
